@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>ES6 JavaScript - What You Need To Know</h1>
+
+<div id="right">
+
+<section>
+  <h3>Backtick (<code>``</code>) Template Strings</h3>
+  <ul>
+    <li>Interpolate with <code>${<i>expression</i>}</code><br>
+      <code>`Token token=${identity.get('accessToken')}`</code></li>
+    <li>Can be split over multiple lines</li>
+  </ul>
+</section>
+<section>
+  <h3><code>...</code> (spread operators / rest parameters)</h3>
+  <ul>
+    <li>In functions parameters, creates an array of remaining arguments<br>
+      <code>function classes(...args) { return args.join(' ') }</code></li>
+    <li>In function arguments, expands array to actual parameters<br>
+      <code>console.log(...args)</code></li>
+    <li>Similar to <code>Function.prototype.apply</code>, but doesn't modify <code>this</code></li>
+  </ul>
+</section>
+<section>
+  <h3>New <code>Array</code> Methods</h3>
+  <ul>
+    <li><code>arr.find(callback[, thisArg])</code><br>
+      return the first item which when passed to <code>callback</code>, produces a truthy value</li>
+    <li><code>arr.findIndex(callback[, thisArg])</code><br>
+      return the index of the first item which when passed to <code>callback</code> produces a truthy value</li>
+    <li><code>arr.fill(value[, start = 0[, end = this.length]])</code><br>
+      fills all the elements of an array from a <code>start</code> index to an <code>end</code> index</li>
+    <li><code>arr.copyWithin(target, start[, end = this.length])</code><br>
+      copies the sequence of items within the array to the position starting with <code>target</code>, taken from the position starting with <code>start</code></li>
+  </ul>
+</section>
+<section>
+  <h3>New Built-in Classes</h3>
+  <ul>
+    <li><code>Map</code> - Map keys to values. Unlike objects, keys don't have to be strings</li>
+    <li><code>Set</code> - Store a set, where each stored value is unique</li>
+    <li><code>Symbol</code> - Use to make private object/class properties</li>
+    <li><code>Promise</code> - Manage callbacks for an event which will occur in the future</li>
+  </ul>
+</section>
+
+</div>
+
+<div id="left">
+
+<section id="need">
+  <h3>Destructuring assignment</h3>
+  <ul>
+    <li><code>let {a, b} = o</code> assigns Object <code>o</code>'s <code>a</code> and <code>b</code> properties to variables <code>a</code>, <code>b</code></li>
+    <li><code>let [a, b] = arr</code> assigns first/second items of Array <code>arr</code> to variables <code>a</code> and <code>b</code></li>
+    <li>Assign defaults with <code>=</code>, e.g. <code>let {max = 5} = options</code>
+    <li>Destructuring can be performed on function arguments.<br>
+      <code class="javascript">function fn({options = {}, flag = true}) { ... }</code>
+    </li>
+  </ul>
+</section>
+<section>
+  <h3><code>for .. of</code> loops</h3>
+  <ul>
+    <li>Works on Iterables, including <code>Array</code>, <code>Map</code>, <code>Set</code> and generators.</li>
+    <li>Does not work with objects.</li>
+    <li>Use with destructuring assignment and <code>let</code><br>
+      <code class="javascript">for (let [key, value] of map) { ... }</code></li>
+  </ul>
+</section>
+<section>
+  <h3><code>let</code> / <code>const</code></h3>
+  <ul>
+    <li>Make variables scoped by block, not function</li>
+    <li>Use in place of <code>var</code></li>
+    <li><code>const</code> prevents re-assignment, but does not make assigned objects immutable</li>
+  </ul>
+</section>
+<section>
+  <h3><code>=></code> arrow functions</h3>
+  <ul>
+    <li><code><i>argument</i> => <i>returned expression</i></code></li>
+    <li><code>this</code> inside function is equal to <code>this</code> where it was defined<br>
+      <code>function() { ... }.bind(this)</code></li>
+    <li><i>returned expression</i> can be a block<br>
+      <code class="javascript">x => { console.log('doubling'); return x*2 }</code></li>
+    <li>Use parentheses for more than one argument<br>
+      <code class="javascript">(min, x, max) => Math.max(min, Math.min(x, max))</code></li>
+    <li>Use parentheses when argument is being destructured<br>
+      <code class="javascript">({x, y}) => Math.sqrt(x*x, y*y)</code></li>
+  </ul>
+</section>
+
+</div>
+
+</body>
+</html>

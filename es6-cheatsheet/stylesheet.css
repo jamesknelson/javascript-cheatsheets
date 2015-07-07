@@ -1,0 +1,72 @@
+@page { size: A4 landscape; margin: 1cm }
+
+
+body {
+  margin: 15px;
+  font-family: 'Adobe Garamond Pro';
+}
+
+
+h1, h2, h3, h4 {
+  font-family: 'Myriad Pro';
+}
+
+h1 {
+  font-weight: normal;
+  color: #aaa;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 18pt;
+}
+
+h2 {
+  color: #434e6a;
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+h3 {
+  color: #434e6a;
+  margin-top: 0pt;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+p, pre, code {
+  font-size: 12px;
+}
+
+code {
+  background-color: #f0f0f0;
+}
+
+section {
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 5pt;
+  margin: 3mm 0;
+}
+
+section > ol, section > ul {
+  margin-top: 0;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 2pt;
+  font-size: 13px;
+}
+
+
+#left, #right {
+  width: 122mm;
+}
+
+#left {
+  float: left;
+}
+#right {
+  float: right;
+}

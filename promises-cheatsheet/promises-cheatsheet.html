@@ -1,0 +1,130 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>JavaScript Promises - What You Need To Know</h1>
+
+<div id="right">
+
+<section id="should">
+  <h2>The two functions you should know</h2>
+  <ul>
+    <li>
+      <h3><code>Promise.resolve(value)</code></h3>
+      <ul>
+        <li>Returns a promise which resolves to <code>value</code></li>
+        <li>If <code>value</code> is a promise, just returns <code>value</code></li>
+      </ul>
+    </li>
+    <li>
+      <h3><code>Promise.reject(value)</code></h3>
+      <ul>
+        <li>Returns a rejected promise with the value <code>value</code></li>
+        <li>Useful while processing errors with <code>promise.catch</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="patterns">
+  <h2>Patterns</h2>
+  <ul>
+    <li>
+      <h3>Promisify a callback-accepting function <code>fn</code></h3>
+      <p>Assume callback passed to <code>fn</code> takes two arguments: <code>callback(error, data)</code>, where <code>error</code> is <code>null</code> if successful, and <code>data</code> is null if unsuccessful.</p>
+      <pre><code class="javascript">new Promise(function(resolve, reject) {
+  fn(function(error, data) {
+    if (error) {
+      reject(error);
+    }
+    else {
+      resolve(data);
+    }
+  });
+});
+      </code></pre>
+    </li>
+    <li>
+      <h3>Catch exceptions thrown in `then` handlers</h3>
+      <pre><code class="javascript">promise
+  .then(function() { ... })
+  .catch(function(err) {
+    console.log(err.stack);
+  });
+      </code></pre>
+    </li>
+  </ul>
+</section>
+
+</div>
+
+<div id="left">
+
+<section id="need">
+  <h2>The four functions you need to know</h2>
+  <ol>
+    <li>
+      <h3><code>new Promise(fn)</code></h3>
+      <ul>
+        <li><code>fn</code> takes two arguments: <code>resolve</code> and <code>reject</code> </li>
+        <li><code>resolve</code> and <code>reject</code> are both functions which can be called with one argument</li>
+        <li>Returned promise will be rejected if an exception is thrown in the passed in function</li>
+      </ul>
+    </li>
+    <li>
+      <h3><code>promise.then(onResolve, onReject)</code></h3>
+      <ul>
+        <li>Returns a promise</li>
+        <li>Returned promise resolves to value returned from handler</li>
+        <li>Chain by returning a promise from <code>onResolve</code> or <code>onReject</code></li>
+        <li>Returned promise will be rejected if an exception is thrown in a handler</li>
+        <li>Use `Promise.reject` to return a rejected promise from <code>onReject</code></li>
+        <li>Make sure to follow by <code>promise.catch</code></li>
+      </ul>
+    </li>
+    <li>
+      <h3><code>promise.catch(onReject)</code></h3>
+      <ul>
+        <li>Returns a promise</li>
+        <li>Equivalent to <code>promise.then(null, onReject)</code></li>
+      </ul>
+    </li>
+    <li>
+      <h3><code>Promise.all([promise1, promise2, ...])</code></h3>
+      <ul>
+        <li>Returns a promise</li>
+        <li>When all arguments resolve, returned promise resolves to an array of all results</li>
+        <li>When any arguments are rejected, returned promise is immediately rejected with the same value</li>
+        <li>Useful for managing doing multiple things concurrently</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section id="packages">
+  <h2>Packages</h2>
+  <ul>
+    <li><a href="https://github.com/jakearchibald/es6-promise">es6-promise</a> - Polyfill older browsers</li>
+    <li><a href="https://github.com/petkaantonov/bluebird">bluebird</a> - Get extra promise methods</li>
+    <li><a href="https://www.npmjs.com/package/promisify-node">promisify-node</a> - Promisify callback-accepting functions (npm)</li>
+  </ul>
+</section>
+
+<section id="reading">
+  <h2>Extra Reading</h2>
+  <ul>
+    <li><a href="http://jamesknelson.com/are-es6-promises-swallowing-your-errors/">Are JavaScript Promises swallowing your errors?</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises at MDN</a></li>
+    <li><a href="http://caniuse.com/#search=promise">Promise browser support at Can I Use</a></li>
+  </ul>
+</section>
+
+</div>
+
+</body>
+</html>
