@@ -1,0 +1,133 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div id="left">
+
+<section>
+  <h2>The essentials</h2>
+  <ol class="method-list">
+    <li>
+      <h3><code>React.createElement(type, props, children)</code></h3>
+      <p>Create a <code>ReactElement</code> with the given component class, <code>props</code> and <code>children</code>.</p>
+<pre><code>var link = React.createElement('a', {href: '#'}, "Save")
+var nav = React.createElement(MyNav, {flat: true}, link)
+</code></pre>
+    </li>
+    <li>
+      <h3><code>React.cloneElement(element, props, children)</code></h3>
+      <p>Create a new <code>ReactElement</code>, merging in new <code>props</code> and <code>children</code>.</p>
+    </li>
+    <li>
+      <h3><code>ReactDOM.render(element, domNode)</code></h3>
+      <p>
+        Take a <code>ReactElement</code>, and render it to a DOM node. E.g.
+      </p>
+<pre><code>ReactDOM.render(
+  React.createElement('div'),
+  document.getElementById('container')
+)</code></pre>
+    </li>
+    <li>
+      <h3><code>ReactDOM.findDOMNode(element)</code></h3>
+      <p>Return the DOM node corresponding to the given element (after <code>render</code>).</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Special props</h2>
+  <ul class="prop-list">
+    <li><code>key</code> uniquely identifies a <code>ReactElement</code>. Used with elements in arrays.</li>
+    <li><code>ref</code> adds the created element to <code>this.refs</code>. Used in components.</li>
+    <li><code>children</code> is automatically added to <code>this.props</code> by <code>React.createElement</code>.</li>
+    <li><code>style</code> accepts an <em>object</em> of styles, instead of a string.</li>
+    <li><code>className</code> corresponds to the HTML <code>class</code> attribute.</li>
+    <li><code>htmlFor</code> corresponds to the HTML <code>for</code> attribute.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>propTypes</h2>
+  <p><em>Available under <code>React.PropTypes</code>. Optionally append <code>.isRequired</code>.</em></p>
+  <ul class="keyword-list">
+    <li><code>any</code></li>
+    <li><code>array</code></li>
+    <li><code>bool</code></li>
+    <li><code>element</code></li>
+    <li><code>func</code></li>
+    <li><code>node</code></li>
+    <li><code>number</code></li>
+    <li><code>object</code></li>
+    <li><code>string</code></li>
+
+    <li class="long"><code class="javascript">instanceOf(constructor)</code></li>
+    <li class="long"><code class="javascript">oneOf(['News', 'Photos'])</code></li>
+    <li class="long"><code class="javascript">oneOfType([propType, propType])</code></li>
+  </ul>
+</section>
+
+<!-- left -->
+</div>
+
+<div id="right">
+
+
+<section>
+  <h2>Components</h2>
+  <pre><code class="javascript">var MyComponent = React.createClass({
+  displayName: 'MyComponent',
+
+  /* ... options and lifecycle methods ... */
+
+  render: function() {
+    return React.createElement( /* ... */ )
+  },
+})</code></pre>
+
+  <h4>Options</h4>
+  <ul class="lifecycle-list">
+    <li><code>propTypes</code> <code>object</code> mapping prop names to types</li>
+    <li><code>getDefaultProps</code> <code class="javascript">function()</code> returning <code>object</code></li>
+    <li><code>getInitialState</code> <code class="javascript">function()</code> returning <code>object</code></li>
+  </ul>
+
+  <h4>Lifecycle Methods</h4>
+  <ul class="lifecycle-list">
+    <li><code>componentWillMount</code> <code class="javascript">function()</code></li>
+    <li><code>componentDidMount</code> <code class="javascript">function()</code></li>
+    <li><code>componentWillReceiveProps</code> <code class="javascript">function(nextProps)</code></li>
+    <li><code>componentWillUpdate</code> <code class="javascript">function(nextProps, nextState)</code></li>
+    <li><code>componentDidUpdate</code> <code class="javascript">function(prevProps, prevState)</code></li>
+    <li><code>componentWillUnmount</code> <code class="javascript">function()</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Component instances</h2>
+  <p>Components are instances of <code>ReactElement</code>.</p>
+  <h4>Properties</h4>
+  <ul class="prop-list">
+    <li><code>refs</code> lists <code>ReactElement</code>s rendered with a <code>ref</code> prop</li>
+    <li><code>props</code> contains any props passed to <code>React.createElement</code></li>
+    <li><code>state</code> contains state set by <code>setState</code> and <code>getInitialState</code></code>
+    <li><code>isMounted</code> is <code>true</code> if the element has a corresponding DOM node</li>
+  </ul>
+  <h4>Methods</h4>
+  <ol class="method-list">
+    <li><code>setState(changes)</code> applies the given changes to <code>this.state</code> and re-renders</li>
+    <li><code>replaceState(newState)</code> replaces <code>this.state</code> and re-renders</li>
+    <li><code>forceUpdate()</code> immediately re-renders the component to the DOM</li>
+  </ol>
+</section>
+
+<footer>2015 &copy; James K Nelson - <a href="http://jamesknelson.com/">jamesknelson.com</a></footer>
+</div>
+
+</body>
+</html>

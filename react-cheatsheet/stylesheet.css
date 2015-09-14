@@ -1,0 +1,151 @@
+@page { size: A4 landscape; margin: 1cm }
+
+
+body {
+  margin: 15px;
+  font-family: 'Adobe Caslon Pro';
+}
+
+code {
+  font-family: 'DejaVu Sans Mono';
+  background-color: #f0f0f0;
+}
+pre {
+  background-color: #f0f0f0; 
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue';
+}
+
+h1 {
+  font-weight: normal;
+  color: #aaa;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 18pt;
+}
+
+h2 {
+  color: #434e6a;
+  font-size: 16pt;
+  margin: 14pt 0 4pt;
+}
+
+h3 {
+  margin-top: 5pt;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+h4 {
+  font-family: 'Adobe Caslon Pro';
+  font-weight: bold;
+  font-size: 14px;
+  margin: 8pt 0 4pt;
+}
+
+pre, code {
+  font-size: 12px;
+}
+li, p {
+  font-size: 13px;
+}
+p, pre {
+  margin: 0.5em 0;
+}
+
+section {
+  margin: 3mm 0;
+}
+section:first-child {
+  margin-top: 0; 
+}
+section:first-child h2 {
+  margin-top: 0;
+}
+
+section > ol, section > ul {
+  margin-top: 0;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+li > ul {
+  margin-top: 2pt;
+  padding-left: 20px;
+}
+
+.method-list li {
+  margin-left: 10pt;
+}
+.method-list li h3 code {
+  background-color: transparent;
+}
+
+.prop-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.prop-list li code:first-child {
+  display: inline-block;
+  font-weight: bold;
+  width: 55pt;
+  text-align: right;
+}
+
+.lifecycle-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lifecycle-list li code:first-child {
+  display: inline-block;
+  font-weight: bold;
+  width: 140pt;
+  text-align: left;
+}
+
+.keyword-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.keyword-list li {
+  display: inline-block;
+  margin: 2pt;
+}
+.keyword-list li code {
+  display: inline-block;
+  width: 55pt;
+}
+.keyword-list li.long {
+  display: block;
+  margin: 5pt 2pt;
+}
+.keyword-list li.long code {
+  width: auto;
+}
+
+#left, #right {
+  width: 122mm;
+  height: 172mm;
+  /* border: 1px dashed #e0e0e0; */
+}
+
+#left {
+  float: left;
+}
+#right {
+  float: right;
+}
+
+footer {
+  margin-top: 2em;
+  font-size: 12px;
+  text-align: right;
+}
+footer, footer a {
+  color: #aaa;
+}
