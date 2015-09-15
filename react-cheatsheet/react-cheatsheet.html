@@ -102,6 +102,7 @@ var nav = React.createElement(MyNav, {flat: true}, link)
     <li><code>componentWillMount</code> <code class="javascript">function()</code></li>
     <li><code>componentDidMount</code> <code class="javascript">function()</code></li>
     <li><code>componentWillReceiveProps</code> <code class="javascript">function(nextProps)</code></li>
+    <li><code>shouldComponentUpdate</code> <code class="javascript">function(nextProps, nextState)</code> -> <code>bool</code>
     <li><code>componentWillUpdate</code> <code class="javascript">function(nextProps, nextState)</code></li>
     <li><code>componentDidUpdate</code> <code class="javascript">function(prevProps, prevState)</code></li>
     <li><code>componentWillUnmount</code> <code class="javascript">function()</code></li>
@@ -110,10 +111,10 @@ var nav = React.createElement(MyNav, {flat: true}, link)
 
 <section>
   <h2>Component instances</h2>
-  <p>Components are instances of <code>ReactElement</code>.</p>
+  <p>One component instance may persist over multiple equivalent <code>ReactElement</code>s.</p>
   <h4>Properties</h4>
   <ul class="prop-list">
-    <li><code>refs</code> lists <code>ReactElement</code>s rendered with a <code>ref</code> prop</li>
+    <li><code>refs</code> lists instances of components created with a <code>ref</code> prop</li>
     <li><code>props</code> contains any props passed to <code>React.createElement</code></li>
     <li><code>state</code> contains state set by <code>setState</code> and <code>getInitialState</code></code>
     <li><code>isMounted</code> is <code>true</code> if the element has a corresponding DOM node</li>
