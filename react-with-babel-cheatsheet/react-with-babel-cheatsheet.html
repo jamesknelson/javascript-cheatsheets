@@ -1,0 +1,97 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div id="left">
+
+<section>
+  <h2>Components are classes</h2>
+  <pre><code class="javascript">export class MyComponent extends Component {
+  componentWillMount() {
+    // ...
+  }
+
+  render() {
+    return &lt;div&gt;Hello World&lt;/div&gt;
+  }
+}</code></pre>
+
+  <h2>Static properties</h2>
+  <pre><code class="javascript">export class MyComponent extends Component {
+  static propTypes = {
+    // ...
+  }
+  static defaultProps = {
+    // ...
+  }
+}</code></pre>
+
+  <h2>Initial state</h2>
+  <pre><code class="javascript">export class MyComponent extends Component {
+  state = {
+    disabled: this.props.disabled,
+  }
+}</code></pre>
+  <h2>Constructors</h2>
+  <p>Replace <code>componentWillMount</code>:</p>
+  <pre><code class="javascript">export class MyComponent extends Component {
+  constructor(props) {
+    super(props)
+    // Do stuff
+  }
+}</code></pre>
+
+
+
+<footer>2016 &copy; James K Nelson - <a href="http://jamesknelson.com/">jamesknelson.com</a></footer>
+
+
+<!-- left -->
+</div>
+
+<div id="right">
+<h2>Bound methods</h2>
+  <p>Bind methods to your component instance when used as handlers:</p>
+  <pre><code class="javascript">export class MyComponent extends Component {
+  onMouseEnter = event => {
+    this.setState({hovering: true})
+  }
+}</code></pre>
+
+  <h2>Import</h2>
+  <p>JSX assumes a <code>React</code> object is available, so make sure to import it:</p>
+  <pre><code>import React, { Component, PropTypes } from 'react'</code></pre>
+
+  <h2>Destructuring</h2>
+  <p>Especially useful with stateless function components:</p>
+  <pre><code class="javascript">export const Commas = ({items, ...otherProps}) =>
+  &lt;div {...otherProps}&gt;{items.join(', ')}&lt;/div&gt;
+</code></pre>
+
+  <h2>Template literals</h2>
+  <p>Use to make dynamic class:</p>
+  <pre><code class="javascript">&lt;input className={`Control-${this.state}`} /&gt;</code></pre>
+  <p>And to sweeten your object literals with dynamic property names:</p>
+  <pre><code class="javascript">this.setState({
+  [`${inputName}Value`]: e.target.value,
+});</code></pre>
+
+  <h2>Class decorators</h2>
+  <p>Use in place of mixins:</p>
+  <pre><code class="javascript">@something(options)
+class MyComponent extends Component {}
+
+// Desugars to
+
+let MyComponent = something(options)(
+  class MyComponent extends Components {}
+)</code></pre>
+</div>
+
+</body>
+</html>

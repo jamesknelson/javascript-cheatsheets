@@ -9,10 +9,10 @@ body {
 code {
   font-family: 'DejaVu Sans Mono';
   background-color: #f0f0f0;
-  padding: 0 !important;
 }
 pre {
   background-color: #f0f0f0; 
+  margin-top: 0 !important;
 }
 
 h1, h2, h3, h4 {
@@ -30,7 +30,7 @@ h1 {
 h2 {
   color: #434e6a;
   font-size: 16pt;
-  margin: 14pt 0 4pt;
+  margin: 8pt 0 0;
 }
 
 h3 {
@@ -53,17 +53,7 @@ li, p {
   font-size: 13px;
 }
 p, pre {
-  margin: 0.5em 0;
-}
-
-section {
-  margin: 3mm 0;
-}
-section:first-child {
-  margin-top: 0; 
-}
-section:first-child h2 {
-  margin-top: 0;
+  margin: 0.2em 0;
 }
 
 section > ol, section > ul {
@@ -89,14 +79,11 @@ li > ul {
   padding: 0;
   list-style: none;
 }
-.prop-list > li > code:first-child {
+.prop-list li code:first-child {
   display: inline-block;
   font-weight: bold;
   width: 55pt;
   text-align: right;
-}
-.prop-list ol {
-  padding-left: 70pt;
 }
 
 .lifecycle-list {
@@ -148,7 +135,7 @@ li > ul {
 footer {
   margin-top: 2em;
   font-size: 12px;
-  text-align: right;
+  text-align: left;
 }
 footer, footer a {
   color: #aaa;

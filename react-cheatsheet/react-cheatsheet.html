@@ -2,8 +2,8 @@
 <html>
 <head>
   <link type="text/css" rel="stylesheet" href="stylesheet.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
@@ -43,12 +43,17 @@ var nav = React.createElement(MyNav, {flat: true}, link)
 <section>
   <h2>Special props</h2>
   <ul class="prop-list">
-    <li><code>key</code> uniquely identifies a <code>ReactElement</code>. Used with elements in arrays.</li>
-    <li><code>ref</code> adds the created element to <code>this.refs</code>. Used in components.</li>
     <li><code>children</code> is automatically added to <code>this.props</code> by <code>React.createElement</code>.</li>
-    <li><code>style</code> accepts an <em>object</em> of styles, instead of a string.</li>
     <li><code>className</code> corresponds to the HTML <code>class</code> attribute.</li>
     <li><code>htmlFor</code> corresponds to the HTML <code>for</code> attribute.</li>
+    <li><code>key</code> uniquely identifies a <code>ReactElement</code>. Used with elements in arrays.</li>
+    <li><code>ref</code> accepts a callback function which will be called:
+      <ol>
+        <li>with the component instance or DOM node on mount.</li>
+        <li>with <code>null</code> on unmount and when the passed in function changes.</li>
+      </ol>
+    </lil>
+    <li><code>style</code> accepts an <em>object</em> of styles, instead of a string.</li>
   </ul>
 </section>
 
@@ -79,7 +84,7 @@ var nav = React.createElement(MyNav, {flat: true}, link)
 
 
 <section>
-  <h2>Components</h2>
+  <h2>Class components</h2>
   <pre><code class="javascript">var MyComponent = React.createClass({
   displayName: 'MyComponent',
 
@@ -111,23 +116,25 @@ var nav = React.createElement(MyNav, {flat: true}, link)
 
 <section>
   <h2>Component instances</h2>
-  <p>One component instance may persist over multiple equivalent <code>ReactElement</code>s.</p>
+  <ul class="method-list">
+  <li>Accessible as <code>this</code> within class components</li>
+  <li>Stateless functional components do not have component instances.</li>
+  <li>Serve   as the object passed to <code>ref</code> callbacks</li>
+  <li>One component instance may persist over multiple equivalent <code>ReactElement</code>s.</li>
+  </ul>
   <h4>Properties</h4>
   <ul class="prop-list">
-    <li><code>refs</code> lists instances of components created with a <code>ref</code> prop</li>
     <li><code>props</code> contains any props passed to <code>React.createElement</code></li>
     <li><code>state</code> contains state set by <code>setState</code> and <code>getInitialState</code></code>
-    <li><code>isMounted</code> is <code>true</code> if the element has a corresponding DOM node</li>
   </ul>
   <h4>Methods</h4>
   <ol class="method-list">
     <li><code>setState(changes)</code> applies the given changes to <code>this.state</code> and re-renders</li>
-    <li><code>replaceState(newState)</code> replaces <code>this.state</code> and re-renders</li>
     <li><code>forceUpdate()</code> immediately re-renders the component to the DOM</li>
   </ol>
 </section>
 
-<footer>2015 &copy; James K Nelson - <a href="http://jamesknelson.com/">jamesknelson.com</a></footer>
+<footer>2016 &copy; James K Nelson - <a href="http://jamesknelson.com/">jamesknelson.com</a></footer>
 </div>
 
 </body>
