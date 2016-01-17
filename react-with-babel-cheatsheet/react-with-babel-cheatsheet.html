@@ -25,17 +25,17 @@
   <pre><code class="javascript">export class MyComponent extends Component {
   static propTypes = {
     // ...
-  }
+  };
   static defaultProps = {
     // ...
-  }
+  };
 }</code></pre>
 
   <h2>Initial state</h2>
   <pre><code class="javascript">export class MyComponent extends Component {
   state = {
     disabled: this.props.disabled,
-  }
+  };
 }</code></pre>
   <h2>Constructors</h2>
   <p>Replace <code>componentWillMount</code>:</p>
@@ -60,7 +60,7 @@
   <pre><code class="javascript">export class MyComponent extends Component {
   onMouseEnter = event => {
     this.setState({hovering: true})
-  }
+  };
 }</code></pre>
 
   <h2>Import</h2>
