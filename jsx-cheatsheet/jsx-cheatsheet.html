@@ -1,0 +1,174 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
+  <link type="text/css" rel="stylesheet" href="stylesheet.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/components/prism-jsx.min.js"></script>
+</head>
+<body>
+<div id="left">
+
+<h1>JSX</h1>
+
+<section>
+  <h2><strong>&lt;tags&gt;</strong> become <code>React.createElement</code></h2>
+
+  <section>
+    <p>Use <code>&lt;lowercase /&gt;</code> tags for DOM elements:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;div /&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('div')</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <p>And use <code>&lt;Capitalized /&gt;</code> tags for custom elements:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;Modal /&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement(Modal)</code></pre>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2><strong>attributes</strong> are <code>props</code></h2>
+
+  <section>
+    <p>Use <code>""</code> quotes when your props are strings:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;Modal title="Edit" /&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement(Modal, {
+  title: "Edit"
+})</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <p>And use <code>{}</code> braces when your props are literals or variables:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;Modal
+  title={`Edit ${name}`}
+  onClose={this.handleClose}
+/&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement(Modal, {
+  title: `Edit ${name}`,
+  onClose: this.handleClose,
+})</code></pre>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2><code>{...object}</code> becomes <code>Object.assign</code></h2>
+
+  <section>
+    <p>Use it in place of <code>Object.assign</code></p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;div
+  className='default'
+  {...this.props}
+/&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('div',
+  Object.assign(
+    { className: 'default' },
+    this.props
+  )
+)</code></pre>
+    </div>
+  </section>
+</section>
+
+<!-- left -->
+</div>
+
+<div id="right">
+
+<section>
+  <h2><strong>&lt;tag&gt; children</strong> become <code>props.children</code>.</h2>
+
+  <section>
+    <p>They can be text:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;p&gt;
+  What good is a phone call...
+&lt;/p&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('p', {},
+  "What good is a phone call..."
+)</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <p>They can be elements:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;Modal&gt;
+  &lt;h1&gt;
+    And then there will be cake
+  &lt;/h1&gt;
+&lt;/Modal&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement(Modal, {},
+  React.createElement('h1', {},
+    "And then there will be cake"
+  )
+)</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <p>Or they can be a mix of both:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;p&gt;
+  I'm sorry &lt;em&gt;Dave&lt;/em&gt;
+&lt;/p&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('p', {},
+  "I'm sorry ",
+  React.createElement('em', {}, "Dave")
+)</code></pre>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2><strong>Interpolate children</strong> using <code>{}</code></h2>
+
+  <section>
+    <p>You can interpolate text:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;p&gt;
+  I'm sorry {name}
+&lt;/p&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('p', {},
+  "I'm sorry ", name
+)</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <p>Or even arrays:</p>
+    <div class="adjacent examples">
+      <pre class="input"><code class="language-jsx">&lt;ol&gt;
+  {steps.map(step =>
+    &lt;li key={step.name}&gt;
+      {step.content}
+    &lt;/li&gt;
+  )}
+&lt;/ol&gt;</code></pre>
+      <pre class="output"><code class="language-javascript">React.createElement('ol', {},
+  steps.map((step, i) =>
+    React.createElement(
+      'li', {key: i}, step
+    )
+  )
+)</code></pre>
+    </div>
+  </section>
+</section>
+
+
+<footer>2016 &copy; James K Nelson - <a href="http://jamesknelson.com/">jamesknelson.com</a></footer>
+
+<!-- right -->
+</div>
+</body>
+</html>

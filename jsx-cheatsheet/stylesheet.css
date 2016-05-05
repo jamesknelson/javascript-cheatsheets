@@ -1,0 +1,115 @@
+@page { size: A4 landscape; margin: 1cm }
+
+
+body {
+  margin: 15px;
+  font-family: 'Adobe Caslon Pro';
+}
+
+code {
+  font-family: 'DejaVu Sans Mono';
+}
+pre.language-jsx,
+pre.language-javascript {
+  padding: 0.2em !important;
+  margin: 0;
+  font-size: 10pt;
+}
+pre, code {
+  font-size: 10px;
+}
+
+pre {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+}
+pre.input { 
+  background-color: rgba(153, 0, 85, 0.05);
+}
+pre.output {
+  background-color: rgba(102, 153, 0, 0.1);
+}
+pre::after {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #d0d0d0;
+}
+pre.input::after {
+  content: "JSX";
+}
+pre.output::after {
+  content: "JS";
+}
+
+p {
+  font-size: 15px;
+  margin: 0 0 0.2em 0;
+}
+
+section > section {
+  margin: 1em 0;
+}
+h2 + section {
+  margin-top: 0.6em;
+}
+
+.adjacent.examples {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.adjacent.examples pre {
+  width: 48%;
+}
+
+.stacked.examples pre {
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-family: 'Share';
+  font-size: 36px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+h2 {
+  color: #434e6a;
+  margin: 8pt 0 0;
+  font-size: 14pt;
+  font-weight: normal;
+  font-family: 'Share';
+}
+h2 code {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+
+#left, #right {
+  height: 172mm;
+  /* border: 1px dashed #e0e0e0; */
+}
+
+#left {
+  float: left;
+  width: 114mm;
+}
+#right {
+  float: right;
+  width: 130mm;
+}
+
+footer {
+  font-family: 'DejaVu Sans Mono';
+  margin-top: 2em;
+  font-size: 12px;
+  text-align: right;
+  margin-top: 24px;
+}
+footer, footer a {
+  color: #aaa;
+}
